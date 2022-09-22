@@ -1,10 +1,13 @@
 ## Funciones
 
-###globales
+### globales
+
 - registrarUsuario(): Esta funcion representa el registro de un usuario en la página y la asignacion de sus datos a variables para utilizar en el resto del programa.
 - loguearse(): Este funcion sirve para que un usuario registrado pueda loguearse en la pagina con los datos que uso a la hora de registrarse.
 - resetearContador(): Esta es una funcion interna que sirve para delimitar la cantidad de veces que un usuario puede escribir mal su contraseña, siendo el maximo 2 veces.
-###Game
+
+### Game
+
 - comprarComida(): Esta funcion sirve para comprar alimento para darle al pescado. Por el momento solo se puede comprar 1 alimento por vez desde esta funcion, sin embargo se va a seguir desarrollando.
 
 - alimentar(): Esta funcion sirve para darle al pescado el alimento que se compro en la funcion comprarComida(). Por el momento solo se puede dar 1 alimento por vez desde esta funcion, sin embargo se va a seguir desarrollando.
@@ -13,7 +16,7 @@
 
 - comprarTodo(): Esta funcion sirve para gastar todas tus monedas en comprar comida con la funcion comprarComida()
 
-##Variables
+## Variables
 
 - contador
 - pescadoAlimento
@@ -26,6 +29,3 @@
 ### Pruebas
 
 ##### Para probar las funcionalidades que no se activan automaticamente por en alert/prompt/confirm, recomiendo realizar las pruebas desde consola para poder ver como se modifican los valores de cada variable al usar las funciones.
-
-
-
