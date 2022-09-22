@@ -1,0 +1,99 @@
+/* VARIABLES */
+
+:root {
+  box-sizing: border-box;
+  margin: 0;
+  --paleta-color-1: #0A4273;
+  --paleta-color-2: #2175BF;
+  --paleta-color-3: #3B9CD9;
+  --paleta-color-4: #8DCBF2;
+  --paleta-color-5: #71C6D9;
+  --font-type: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+*, *::after, *::before{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  background-color: #0A4273;
+}
+
+.app{
+  max-height: 100vh;
+  min-height: 100vh;
+  max-width: 100vw;
+  min-width: 100vh;
+  font-family: var(--font-type);
+  background-image: url(/assets/imagenes/home-background-1366.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+
+/* CLASES FLEX */
+
+.flex-row{
+ display: flex;
+}
+.flex-column{
+ display: flex;
+ flex-direction: column;
+}
+
+.header-container{
+  min-width: 100vw;
+  height: 20vh;
+  justify-content: space-around;
+}
+
+.header-container .img-banner-left{
+  height: 95%;
+}
+
+.header-container .ref-menu{
+  text-decoration: none;
+  font: var(--font-type);
+  color: white;
+  font-size: 1.5rem;
+  margin: .8rem;
+  text-shadow: 1px 1px black;
+}
+
+.center{
+  align-items: center;
+}
+
+.center a:hover{
+ text-decoration: underline;
+ color: var(--paleta-color-4);
+ transition: all .3s ease-in-out;
+}
+
+.header-others{
+  width: 8vw;
+}
+
+.btn-container{
+  width: 100%;
+  height: 75vh;
+  justify-content: center;
+  align-items: end;
+}
+
+.btn-playgame{
+  background-color: green;
+  color: white;
+  font-family: var(--font-type);
+  font-size: 2rem;
+  border-radius: 5%;
+  box-shadow: 2px 2px 2px black;
+}
+
+.btn-playgame:hover{
+  background-color: rgb(2, 106, 2);
+  cursor: pointer;
+}
