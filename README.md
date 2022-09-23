@@ -18,13 +18,13 @@
 
 ## Variables
 
-- contador: variable interna para los intentos de inicio de sesion
-- pescadoAlimento: muestra la cantidad de alimento que recibio el pescado
-- peceraEnergia: muestra la cantidad de energia que tiene el usuario en su pecera
-- peceraComida: muestra la cantidad de comida que tiene el usuario en su pecera
-- tiendaManzanas: muestra la cantidad de manzanas que quedan en la tienda
-- precioManzanas: muestra el precio de (1) manzana en la tienda
-- monedaCorales: muestra la cantidad de moneda o corales que tiene el usuario en su pecera, se utilizan para comprar en la tienda.
+- **contador**: variable interna para los intentos de inicio de sesion
+- **pescadoAlimento**: muestra la cantidad de alimento que recibio el pescado
+- **peceraEnergia**: muestra la cantidad de energia que tiene el usuario en su pecera
+- **peceraComida**: muestra la cantidad de comida que tiene el usuario en su pecera
+- **tiendaManzanas**: muestra la cantidad de manzanas que quedan en la tienda
+- **precioManzanas**: muestra el precio de (1) manzana en la tienda
+- **monedaCorales**: muestra la cantidad de moneda o corales que tiene el usuario en su pecera, se utilizan para comprar en la tienda.
 
 ### Pruebas
 

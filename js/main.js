@@ -8,26 +8,24 @@ let tiendaManzanas = 999999999999;
 let precioManzanas = 5;
 let monedaCorales = 100;
 
-
-
 function registrarUsuario() {
-  nombreDeUsuario = prompt("Ingrese un nombre usuario");
-  contraseña = prompt("Ingrese una contraseña");
+  nombreDeUsuario = prompt("Ingrese un nombre usuario para registrarse");
+  contraseña = prompt("Ingrese una contraseña para registrarse");
 }
 
 function loguearse() {
-  let logUser = prompt("Introduzca su usuario");
-  let logContraseña = prompt("Introduzca su contraseña");
+  let logUser = prompt("Introduzca su usuario para loguearse");
+  let logContraseña = prompt("Introduzca su contraseña para loguearse");
 
   if (logUser === nombreDeUsuario && logContraseña === contraseña) {
-     alert("Bienvenido " + nombreDeUsuario + " Ya podes jugar Coder To Fish")
+    alert("Bienvenido " + nombreDeUsuario + " Ya podes jugar Coder To Fish");
   } else {
     alert("Nombre o contraseña incorrectos, intentelo nuevamente");
-    contador++
+    contador++;
     if (contador === 2) {
       alert("Agotaste los intentos vuelve a recargar la pagina");
     } else {
-    loguearse()
+      loguearse();
     }
   }
 }
@@ -47,11 +45,11 @@ function comprarComida() {
       monedaCorales -= 5;
     }
   } else {
-    alert("No tienes corales suficientes")
+    alert("No tienes corales suficientes");
   }
 }
 
-function alimentar(){
+function alimentar() {
   if (peceraComida >= 1) {
     let alimentarPez = confirm("Desea alimentar a este pez?");
     if (alimentarPez === true) {
@@ -66,8 +64,8 @@ function alimentar(){
 }
 
 function venderComida() {
-  if (peceraComida >= 1 && peceraEnergia >=1) {
-    let vender = confirm("¿Desea vender 1 alimento?")
+  if (peceraComida >= 1 && peceraEnergia >= 1) {
+    let vender = confirm("¿Desea vender 1 alimento?");
     if (vender === true) {
       tiendaManzanas += 1;
       monedaCorales += 3;
@@ -75,18 +73,18 @@ function venderComida() {
       peceraEnergia -= 1;
     }
   } else {
-    alert("Debes tener comida y energía para realizar esta accion.")
+    alert("Debes tener comida y energía para realizar esta accion.");
   }
 }
 
 function comprarTodo() {
-  for (i = 0; i < monedaCorales + i; i++){
-    comprarComida()
+  for (i = 0; i < monedaCorales + i; i++) {
+    comprarComida();
   }
 }
 
-  registrarUsuario();
-  loguearse();
-  resetearContador();
-  comprarComida()
-  alimentar();
+registrarUsuario();
+loguearse();
+resetearContador();
+comprarComida();
+alimentar();
