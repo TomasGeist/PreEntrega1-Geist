@@ -4,11 +4,20 @@ let nombreDeUsuario;
 let contraseña;
 let contador = 0;
 let pescadoAlimento = 0;
-let peceraEnergia = 0;
 let peceraComida = 0;
 let tiendaManzanas = 999999999999;
 let precioManzanas = 5;
 let monedaCorales = 100;
+// registrarUsuario();
+// loguearse();
+// resetearContador();
+
+
+let datosUsuario = [nombreDeUsuario, contraseña];
+
+
+//DOM
+
 
 
 //FUNCIONES GLOBALES
@@ -42,32 +51,8 @@ function resetearContador() {
   }
 }
 
-function comprarComida() {
-  if (monedaCorales >= 5) {
-    let compra = confirm("¿Desea comprar 1 manzana?");
-    if (compra === true) {
-      tiendaManzanas -= 1;
-      peceraComida += 1;
-      monedaCorales -= 5;
-    }
-  } else {
-    alert("No tienes corales suficientes");
-  }
-}
 
-function alimentar() {
-  if (peceraComida >= 1) {
-    let alimentarPez = confirm("Desea alimentar a este pez?");
-    if (alimentarPez === true) {
-      peceraComida -= 1;
-      pescadoAlimento += 1;
-      peceraEnergia += 1;
-      monedaCorales += 7;
-    }
-  } else {
-    alert("No tienes suficiente comida");
-  }
-}
+
 
 function venderComida() {
   if (peceraComida >= 1 && peceraEnergia >= 1) {
@@ -83,11 +68,7 @@ function venderComida() {
   }
 }
 
-function comprarTodo() {
-  for (i = 0; i < monedaCorales + i; i++) {
-    comprarComida();
-  }
-}
+
 
 
 // FUNCIONES DE CREACION DE PESCADO
@@ -102,8 +83,10 @@ function crearPescado() {
   let nombre = crearNombre();
   let nivel = 0;
   let alimento = 0;
+  datosUsuario.push({id, nombre, nivel, alimento})
   return pescadosCreados.push({id, nombre, nivel, alimento})
 }
+
 
 // otras funcoines
 
@@ -120,6 +103,7 @@ function evento(evento) {
 
 let btnAbrir = document.getElementById('btn-abrir');
 let muestraPescado = document.getElementById("muestraPescado");
+let btnAlimentar = document.getElementById("btnAlimentar");
 
 btnAbrir.addEventListener('click', abrirHuevo);
 
@@ -127,18 +111,19 @@ function abrirHuevo(abrirHuevo) {
   mostrarHuevo.classList.add("none");
   muestraPescado.classList.remove("none");
   crearPescado();
-  informacionPescadoId.textContent = "ID: " + 
+  informacionPescadoId.textContent = "#00" + 
     pescadosCreados[pescadosCreados.length - 1].id;
   informacionPescadoNombre.textContent =
-    "NOMBRE: " + pescadosCreados[pescadosCreados.length - 1].nombre;
+    pescadosCreados[pescadosCreados.length - 1].nombre;
    informacionPescadoNivel.textContent =
-    "NIVEL: " + pescadosCreados[pescadosCreados.length - 1].nivel;
+    "NIVEL: " + pescadosCreados[pescadosCreados.length - 1].nivel + "/5";
    informacionPescadoAlimento.textContent =
     "ALIMENTOS: " + pescadosCreados[pescadosCreados.length - 1].alimento;
   if (pescadosCreados[pescadosCreados.length - 1].nombre === "Pez Sardina") {
     imgPescado.src = "/assets/imagenes/sardina.png"
   } else if (pescadosCreados[pescadosCreados.length - 1].nombre === "Pez Globo"){
     imgPescado.src = "/assets/imagenes/globo.png";
+    imgPescado.classList.add()
   } else if (pescadosCreados[pescadosCreados.length - 1].nombre === "Pez Espada"){
     imgPescado.src = "/assets/imagenes/espada.png";
   } else if (pescadosCreados[pescadosCreados.length - 1].nombre === "Tiburon"){
@@ -148,7 +133,10 @@ function abrirHuevo(abrirHuevo) {
   }
   setTimeout(() => {
     muestraPescado.classList.add("none");
-  }, 5000);
+    iniciarJuego();
+    btnAlimentar.classList.remove('none')
+  }, 3000);
+  
 }
 
 
@@ -215,15 +203,96 @@ function crearId() {
 }
 
 
+// funciones de inicio de juego
+
+let gameBox = document.getElementById("game-box");
+let gameBoxDiv20 = document.createElement("div");
+let gameBoxDiv60 = document.createElement("div");
+let gameBoxDiv40 = document.createElement("div");
+let gameBoxDivInt60 = document.createElement("div");
+let gameBoxDivInt40 = document.createElement("div");
+let gameBoxDivInt20 = document.createElement("div");
+let gameBoxDivInt20P = document.createElement("p");
+let gameBoxDivInt40Target = document.createElement("div");
+let manzana = document.createElement('img');
+let textCantidadManzanas = document.createElement("p");
+let btnComprarAlimento = document.createElement("button");
+
+function iniciarJuego() {
+  gameBox.appendChild(gameBoxDiv20);
+  gameBox.appendChild(gameBoxDiv60);
+  gameBox.appendChild(gameBoxDiv40);
+  gameBoxDiv20.classList.add("gameBoxDiv20");
+  gameBoxDiv60.classList.add("gameBoxDiv60");
+  gameBoxDiv40.classList.add("gameBoxDiv40");
+  gameBoxDiv40.appendChild(gameBoxDivInt40);
+  gameBoxDivInt40.classList.add("gameBoxDivInt40");
+  muestraPescado.classList.remove('none')
+  gameBoxDiv60.appendChild(muestraPescado);
+  muestraPescado.classList.add("muestraPescadoGame");
+  gameBoxDiv20.appendChild(gameBoxDivInt20);
+  gameBoxDivInt20.appendChild(gameBoxDivInt20P);
+  gameBoxDivInt20P.textContent = "Balance: " + monedaCorales;
+  btnAlimentar.addEventListener('click', alimentando);
+  function alimentando(alimentando) {
+    alimentar();
+  }
+  gameBoxDivInt40.appendChild(gameBoxDivInt40Target);
+  gameBoxDivInt40Target.classList.add("gameBoxDivInt40Target");
+  gameBoxDivInt40Target.appendChild(manzana);
+  manzana.src = "/assets/imagenes/manzana.png";
+  gameBoxDivInt40Target.appendChild(textCantidadManzanas);
+  textCantidadManzanas.textContent = 'Tienes ' + peceraComida;
+  gameBoxDivInt40Target.appendChild(btnComprarAlimento);
+  btnComprarAlimento.classList.add('btn', 'btn-chico');
+  btnComprarAlimento.textContent = 'Comprar';
+  btnComprarAlimento.addEventListener('click', comprando);
+  function comprando(comprando) {
+    comprarComida();
+  }
+}
+
+
+function alimentar() {
+  if (peceraComida >= 1) {
+    let alimentarPez = confirm("Desea alimentar a este pez?");
+    if (alimentarPez === true) {
+      peceraComida -= 1;
+      pescadosCreados[pescadosCreados.length - 1].alimento += 1;
+      monedaCorales += 7;
+      informacionPescadoAlimento.textContent =
+        "ALIMENTOS: " + pescadosCreados[pescadosCreados.length - 1].alimento;
+      gameBoxDivInt20P.textContent = "Balance: " + monedaCorales;
+      textCantidadManzanas.textContent = "Tienes " + peceraComida;
+    }
+  } else {
+    alert("No tienes suficiente comida");
+  }
+}
+
+
+ function comprarComida() {
+  if (monedaCorales >= 5) {
+    let compra = confirm("¿Desea comprar 1 manzana?");
+    if (compra === true) {
+      tiendaManzanas -= 1;
+      peceraComida += 1;
+      textCantidadManzanas.textContent = "Tienes " + peceraComida;
+      monedaCorales -= 5;
+      gameBoxDivInt20P.textContent = "Balance: " + monedaCorales;
+    }
+  } else {
+    alert("No tienes corales suficientes");
+  }
+}
 
 
 
+/* function comprarTodo() {
+  for (i = 0; i < monedaCorales + i; i++) {
+    comprarComida();
+    gameBoxDivInt20P.textContent = "Balance: " + monedaCorales;
+  }
+}
 
-
-
-
-// funciones de spawn
-
-
-
-
+*/
