@@ -97,3 +97,10 @@ body{
   background-color: rgb(2, 106, 2);
   cursor: pointer;
 }
+
+.btn-playgame a{
+  text-decoration: none;
+  color: white;
+  font-family: var(--font-type);
+  font-size: 2rem;
+}

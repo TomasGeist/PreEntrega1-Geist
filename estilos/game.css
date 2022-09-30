@@ -1,0 +1,81 @@
+:root {
+  box-sizing: border-box;
+  margin: 0;
+  --paleta-color-1: #0A4273;
+  --paleta-color-2: #2175BF;
+  --paleta-color-3: #3B9CD9;
+  --paleta-color-4: #8DCBF2;
+  --paleta-color-5: #71C6D9;
+  --font-type: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+*, *::after, *::before{
+  box-sizing: border-box;
+  font-family: var(--font-type);
+}
+
+body{
+  margin: 0;
+  background-color: #0A4273;
+}
+
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+#game-box{
+  display: flex;
+  border: 1rem solid var(--paleta-color-2);
+  width: 70vw;
+  min-height: 70vh;
+  margin: 3rem;
+  background-color: var(--paleta-color-4);
+  justify-content: center;
+  align-items: center;
+}
+
+.none{
+display: none;
+}
+
+
+#crear{
+ width: 100%;
+ width: 80%;
+}
+
+#abrirHuevo{
+  border: .5rem solid #0A4273;
+  width: 20rem;
+  height: 20rem;
+  flex-direction: column;
+}
+
+#img-huevo{
+padding-bottom: 2rem;
+}
+
+#img-huevo img{
+  width: 50%;
+}
+
+#muestraPescado {
+  border: .5rem solid #0A4273;
+  width: 20rem;
+  height: 20rem;
+  flex-direction: column;
+}
+
+#muestraPescado img{
+  width: 50%;
+}

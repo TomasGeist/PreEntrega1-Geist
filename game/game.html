@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/estilos/game.css">
+  <link rel="stylesheet" href="/estilos/index.css">
+  <title>Game Beta</title>
+</head>
+<body>
+ <!--HEADER-->
+  <header>
+    <div class="header-container flex-row">
+      <div class="header-image">
+        <img src="/assets/imagenes/banner-left.png" alt="img-banner" class="img-banner-left">
+      </div>
+      <div class="center flex-row">
+      <div class="header-menu">
+        <a href="/index.html" class="ref-menu">HOME</a>
+        <a href="" class="ref-menu ">MERCADO</a>
+        <a href="" class="ref-menu">WIKI</a>
+        <a href="" class="ref-menu">INVENTARIO</a>
+        <a href="/game/game.html" class="ref-menu">GAME BETA</a>
+        <a href="" class="ref-menu">SOCIAL</a>
+      </div>
+      </div>
+      <div class="header-others"></div>
+    </div>
+  </header>
+  <!--GAME-->
+  <div id="container">
+    <div id="game-box">
+      <div id="crearPescado">
+        <button id="crear" class="">CREA TU PRIMER PESCADO</button>
+        <div id="abrirHuevo" class="flex none">
+          <div id="img-huevo" class="flex"> <img src="/assets/imagenes/huevo.png" alt=""></div>
+          <div id="btn-abrir"> <button>ABRIR</button></div>
+        </div>
+        <div id="muestraPescado" class="flex none">
+        <div class="flex"> <img  id="imgPescado" src="" alt=""></div>
+        <div id="informacionPescado">
+          <p id="informacionPescadoNombre">Nombre:</p>
+          <p id="informacionPescadoId">ID: 1</p>
+          <p id="informacionPescadoNivel">NIVEL: 0</p>
+          <p id="informacionPescadoAlimento">ALIMENTOS: 0</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/game.js"></script>
+</body>
+</html>
