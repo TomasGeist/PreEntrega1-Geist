@@ -264,6 +264,7 @@ function alimentar() {
         "ALIMENTOS: " + pescadosCreados[pescadosCreados.length - 1].alimento;
       gameBoxDivInt20P.textContent = "Balance: " + monedaCorales;
       textCantidadManzanas.textContent = "Tienes " + peceraComida;
+      subirNivel()
     }
   } else {
     alert("No tienes suficiente comida");
@@ -288,11 +289,30 @@ function alimentar() {
 
 
 
-/* function comprarTodo() {
-  for (i = 0; i < monedaCorales + i; i++) {
-    comprarComida();
-    gameBoxDivInt20P.textContent = "Balance: " + monedaCorales;
+
+
+
+function subirNivel() {
+  if (
+    pescadosCreados[pescadosCreados.length - 1].alimento === 50 &&
+    pescadosCreados[0].nivel < 5
+  ) {
+    pescadosCreados[0].nivel = pescadosCreados[0].nivel + 1;
+     informacionPescadoNivel.textContent =
+      "NIVEL: " + pescadosCreados[pescadosCreados.length - 1].nivel + "/5";
+       pescadosCreados[pescadosCreados.length - 1].alimento = 0;
   }
 }
 
-*/
+ function comprarTodo() {
+   for (i = 0; i < monedaCorales + i; i++) {
+     comprarComida();
+     gameBoxDivInt20P.textContent = "Balance: " + monedaCorales;
+   }
+}
+ 
+ function alimentarTodo() {
+   for (i = 0; i < 10 + i; i++) {
+     alimentar();
+   }
+ }
