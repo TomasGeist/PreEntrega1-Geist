@@ -8,25 +8,26 @@ let peceraComida = 0;
 let tiendaManzanas = 999999999999;
 let precioManzanas = 5;
 let monedaCorales = 100;
-// registrarUsuario();
-// loguearse();
-// resetearContador();
+registrarUsuario();
+let usuarios = [];
+loguearse();
+resetearContador();
 
 
 let datosUsuario = [nombreDeUsuario, contraseña];
 
 
-//DOM
 
 
 
 //FUNCIONES GLOBALES
 
-
 function registrarUsuario() {
   nombreDeUsuario = prompt("Ingrese un nombre usuario para registrarse");
   contraseña = prompt("Ingrese una contraseña para registrarse");
 }
+
+
 
 function loguearse() {
   let logUser = prompt("Introduzca su usuario para loguearse");
@@ -174,16 +175,20 @@ const letras = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
 const pescadosCreados = []
 
 
-//declaracion de la clase pescados
+// Funcion filtro de pescados <-- Usando filter
+// se puede buscar pescados por su nombre, para hacer uso se puede crear un for con la funcion crearPescado() y la cantidad de pescados que desee
+// y luego utilizar la funcion buscarPescado('Pasar como parametro alguno de los tipos de pescado')
+// Los parametros pueden ser: "Pez Sardina", "Pez Globo", "Pez Espada","Tiburon","Pez Abisal".
 
-class Pescados{
-  constructor(id, nombre, nivel, alimento) {
-    this._id = id;
-    this._nombre = nombre;
-    this._nivel = nivel;
-    this._alimento = alimento;
-  }
+function buscarPescado(valorBuscado) {
+  const valor = valorBuscado
+  const resultado = pescadosCreados.filter(pescado => pescado.nombre === valor);
+  return console.table(resultado)
 }
+
+
+
+
 
 //Esta funcion crea un Id de pescado y se guarda en el array de pescados creados.
 
