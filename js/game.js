@@ -9,7 +9,6 @@ let tiendaManzanas = 999999999999;
 let precioManzanas = 5;
 let monedaCorales = 100;
 registrarUsuario();
-let usuarios = [];
 loguearse();
 resetearContador();
 
@@ -183,7 +182,12 @@ const pescadosCreados = []
 function buscarPescado(valorBuscado) {
   const valor = valorBuscado
   const resultado = pescadosCreados.filter(pescado => pescado.nombre === valor);
-  return console.table(resultado)
+  if (resultado === undefined) {
+       console.log("No tienes este pescado");
+  }   else {
+   return console.table(resultado);
+  }
+
 }
 
 
