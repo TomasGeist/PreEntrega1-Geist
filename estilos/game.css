@@ -212,3 +212,10 @@ padding-bottom: 2rem;
 .btn-chico{
   width: 6em;
 }
+
+.login{
+  display: flex;
+  justify-content: right;
+  width: 10vh;
+  align-items: center;
+}
