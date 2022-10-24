@@ -319,7 +319,7 @@ if (pescadosCreados[pescadosCreados.length - 1].nombre === "Pez Sardina") {
 function iniciarJuego() {
   peceraComida = JSON.parse(localStorage.getItem('peceraComida'));
   pescadoAlimento = JSON.parse(localStorage.getItem("pescadoAlimento"));
-  monedaCorales = (JSON.parse(localStorage.getItem("monedaCorales"))).toFixed(2);
+  monedaCorales = JSON.parse(localStorage.getItem("monedaCorales"));
 
   if (pescadoAlimento === null) {
     pescadoAlimento = 0;
@@ -332,6 +332,7 @@ function iniciarJuego() {
     monedaCorales = 100;
   }
 
+  monedaCorales = Number(monedaCorales.toFixed(2));
   
 
   pescadosCreados[pescadosCreados.length - 1].alimento = pescadoAlimento; 
