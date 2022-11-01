@@ -802,7 +802,7 @@ function iniciarJuego() {
 
   // abisal
 
-  function comprarComida() {
+function comprarComida() {
     if (monedaCorales >= 5) {
       let compra = confirm("¿Desea comprar 1 manzana?");
       if (compra === true) {
