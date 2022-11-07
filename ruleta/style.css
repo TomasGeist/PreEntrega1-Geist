@@ -1,0 +1,310 @@
+.fondo{
+    border: thin solid black;
+    width: 25rem;
+    position: relative;
+}
+
+.rueda{
+    border: thin solid black;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background-image: url(/ruleta/04.jpg);
+    background-position: -4.1rem;
+}
+
+.center{
+    border: thin solid black;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.center:hover{
+    background-color: rgb(196, 6, 6);
+}
+
+
+.stop{
+    position: absolute;
+    width: 2rem;
+    height: 1rem;
+    border: thin solid black;
+    z-index: 20;
+    top: 2rem;
+    right: 3rem;
+    background-color: red;
+    transform: rotate(135deg);
+}
+
+img{
+  z-index: 200;
+  width: 3rem;
+  position: absolute;
+}
+
+#manzana1{
+  top: 3rem;
+  right: 7.5rem;
+}
+
+#manzana2{
+  top: 7rem;
+  right: 19.5rem;
+}
+
+#manzana3{
+  top:14.5rem;
+  right: 19.5rem;
+}
+
+#manzana4{
+  top: 19rem;
+  right: 7.6rem;
+}
+
+#manzana5{
+  top: 14rem;
+  right: 3rem;
+}
+
+h2{
+  position: absolute;
+  color: white;
+  z-index: 200;
+  font-size: 1rem;
+
+}
+
+#textoRuleta1{
+  top: 9rem;
+  right: 2rem;
+}
+
+#textoRuleta2{
+  top: 3rem;
+  right: 13rem;
+}
+
+#textoRuleta3{
+  top:19rem;
+  right: 13.5rem;
+  color: black;
+}
+
+
+.divPremio{
+  width: 12rem;
+  height: 12rem;
+  position: absolute;
+  border: thin solid black;
+  background-color: blue;
+  border-radius: .2rem;
+  top: 33%;
+  left: 45%;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.cerrar{
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 2px;
+  background-color: red;
+  cursor: pointer;
+  margin-right: .2rem;
+  margin-top: .2rem;
+  position: relative;
+}
+
+.cerrar:hover{
+  background-color: rgb(192, 3, 3);
+}
+
+
+.izq{
+  width: 1rem;
+  border: thin  solid white;
+  transform: rotate(45deg);
+  position: absolute;
+  top: .5rem;
+  left: .05rem;
+
+}
+
+.der{
+  width: 1rem;
+  border: thin  solid white;
+  transform: rotate(135deg);
+  position: absolute;
+  top: .5rem;
+  left: .05rem;
+
+}
+
+.tipoPremioContainer{
+width: 100%;
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.tipoPremio{
+
+}
+
+.girar1{
+    animation-name: rueda1; 
+    animation-duration:4s;
+    animation-timing-function:ease;
+    animation-delay:0s;
+}
+
+
+
+
+
+
+  .girar2{
+    animation-name: rueda2; 
+    animation-duration:4s;
+    animation-timing-function:ease;
+    animation-delay:0s;}
+
+    .girar3{
+        animation-name: rueda3; 
+        animation-duration:4s;
+        animation-timing-function:ease;
+        animation-delay:0s;}
+
+        .girar4{
+            animation-name: rueda4; 
+            animation-duration:4s;
+            animation-timing-function:ease;
+            animation-delay:0s;}
+
+            .girar5{
+                animation-name: rueda5; 
+                animation-duration:4s;
+                animation-timing-function:ease;
+                animation-delay:0s;}
+
+                .girar6{
+                    animation-name: rueda6; 
+                    animation-duration:4s;
+                    animation-timing-function:ease;
+                    animation-delay:0s;}
+
+                    .girar7{
+                        animation-name: rueda7; 
+                        animation-duration:4s;
+                        animation-timing-function:ease;
+                        animation-delay:0s;}
+                        .girar8{
+                            animation-name: rueda8; 
+                            animation-duration:4s;
+                            animation-timing-function:ease;
+                            animation-delay:0s;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @keyframes rueda1{
+        0%{
+          transform:rotate(0deg)
+        }
+        100%{
+          transform:rotate(1080deg)
+        }
+    }
+
+
+    @keyframes rueda2{
+    0%{
+      transform:rotate(0deg)
+    }
+    100%{
+      transform:rotate(1125deg)
+    }
+    }
+
+    @keyframes rueda3{
+        0%{
+          transform:rotate(0deg)
+        }
+        100%{
+          transform:rotate(1170deg)
+        }
+        }
+
+        @keyframes rueda4{
+            0%{
+              transform:rotate(0deg)
+            }
+            100%{
+              transform:rotate(1215deg)
+            }
+            }
+
+            @keyframes rueda5{
+                0%{
+                  transform:rotate(0deg)
+                }
+                100%{
+                  transform:rotate(1250deg)
+                }
+                }
+
+                @keyframes rueda6{
+                    0%{
+                      transform:rotate(0deg)
+                    }
+                    100%{
+                      transform:rotate(1295deg)
+                    }
+                    }
+
+                    @keyframes rueda7{
+                        0%{
+                          transform:rotate(0deg)
+                        }
+                        100%{
+                          transform:rotate(1340deg)
+                        }
+                        }
+
+                        @keyframes rueda8{
+                            0%{
+                              transform:rotate(0deg)
+                            }
+                            100%{
+                              transform:rotate(1060deg)
+                            }
+                            }

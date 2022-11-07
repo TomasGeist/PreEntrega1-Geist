@@ -376,6 +376,19 @@ function iniciarJuego() {
     function comprando(comprando) {
       comprarComida();
     }
+
+    // AGREGANDO RULETA
+    let ruletaDiv = document.createElement('div');
+    gameBoxDiv20.appendChild(ruletaDiv)
+    let ruletaDivBtn = document.createElement('button');
+    ruletaDiv.appendChild(ruletaDivBtn);
+    ruletaDivBtn.classList.add('btnRuleta')
+    let ruletaBtnImg = document.createElement('img');
+    ruletaBtnImg.src = "/assets/imagenes/ruleta.png"
+    ruletaDivBtn.appendChild(ruletaBtnImg);
+
+    ruletaDiv.addEventListener('click', ()=>{
+    })
   }
 
   function alimentar() {
@@ -802,7 +815,7 @@ function iniciarJuego() {
 
   // abisal
 
-function comprarComida() {
+  function comprarComida() {
     if (monedaCorales >= 5) {
       let compra = confirm("¿Desea comprar 1 manzana?");
       if (compra === true) {

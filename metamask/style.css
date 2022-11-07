@@ -1,0 +1,26 @@
+#conectarMetamask{
+    background-color: orangered;
+    padding: 1rem;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15rem;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1rem black;
+    box-shadow: 1px 1px 1rem black;
+    border-radius: .5rem;
+}
+
+#conectarMetamask:hover{
+    cursor: pointer;
+    background-color: #dd3e04;
+}
+
+#metamaskLogo{
+    width: 1.5rem;
+    margin-right: 1rem;
+    box-shadow: .2rem .2rem 1rem black;
+}

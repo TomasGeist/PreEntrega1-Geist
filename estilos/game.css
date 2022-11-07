@@ -160,6 +160,23 @@ padding-bottom: 2rem;
   border-radius: 0px 0px 8px 8px;
 }
 
+.btnRuleta{
+width: 1.8rem;
+height: 1.8rem;
+margin-left: 1rem;
+position: absolute;
+top: 2rem;
+background-color: var(--paleta-color-1);
+cursor: pointer;
+}
+
+.btnRuleta img{
+  width: 1.6rem;
+  position: absolute;
+  top: 0;
+  left: 0rem;
+}
+
 #informacionPescado{
   display: flex;
   flex-direction: column;
