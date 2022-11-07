@@ -388,6 +388,7 @@ function iniciarJuego() {
     ruletaDivBtn.appendChild(ruletaBtnImg);
 
     ruletaDiv.addEventListener('click', ()=>{
+     location.href = 'https://preentrega1-geist.netlify.app/ruleta/index.html'
     })
   }
 
