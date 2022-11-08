@@ -8,6 +8,12 @@ let balance = localStorage.getItem("monedaCorales");
 
 textBalance.textContent = balance + " Corales";
 
+let btnVolver = document.querySelector(".btnVolver");
+ btnVolver.textContent = "VOLVER"
+
+btnVolver.addEventListener('click', () => {
+     location.href = "https://preentrega1-geist.netlify.app/game/game.html";
+ })
 
 
 center.addEventListener('click', ()=>{

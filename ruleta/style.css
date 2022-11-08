@@ -50,12 +50,15 @@
 
 
 .headerContainer{
+  border-radius: 1rem;
   width: 20%;
-  border: thin solid black;
     background-color: #2175BF;
     margin-bottom: 1rem;
     display: flex;
     justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 1px black;
+
 }
 
 .textBalance{
@@ -66,11 +69,24 @@
   background-color: #0A4273;
 }
 
+.btnVolver{
+  color: white;
+  font-size: .5rem;
+  box-shadow: 1px 1px 1px black;
+  background-color: #0A4273;
+  height: 1.5rem;
+  width: 3rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
 .fondo{
   margin-left: 5rem;
     width: 25rem;
     position: relative;
 }
+
+
 
 .rueda{
     border: thin solid black;
