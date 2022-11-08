@@ -1,13 +1,81 @@
+:root {
+  box-sizing: border-box;
+  margin: 0;
+  --paleta-color-1: #0A4273;
+  --paleta-color-2: #2175BF;
+  --paleta-color-3: #3b9cd9;
+  --paleta-color-4: #8DCBF2;
+  --paleta-color-5: #71c6d9;
+  --font-type: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+*, *::after, *::before{
+  box-sizing: border-box;
+  font-family: var(--font-type);
+}
+
+.body{
+   margin: 0;
+  background-color: var(--paleta-color-4);
+  background-image: url(/assets/imagenes/home-background.png);
+  background-size: cover;
+}
+
+.container{
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.gamebox{
+   display: flex;
+  border: .2rem solid var(--paleta-color-2);
+  width: 70vw;
+  min-height: 70vh;
+  margin: 3em;
+  background-color: var(--paleta-color-4);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url(/assets/imagenes/pecera.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 5px black);
+
+}
+
+
+.headerContainer{
+  width: 20%;
+  border: thin solid black;
+    background-color: #2175BF;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.textBalance{
+  color: white;
+  font-size: .8rem;
+  box-shadow: 1px 1px 1px black;
+  padding: .5rem;
+  background-color: #0A4273;
+}
+
 .fondo{
-    border: thin solid black;
+  margin-left: 5rem;
     width: 25rem;
     position: relative;
 }
 
 .rueda{
     border: thin solid black;
-    width: 25rem;
-    height: 25rem;
+    width: 20rem;
+    height: 20rem;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -15,13 +83,13 @@
     position: relative;
     overflow: hidden;
     background-image: url(/ruleta/04.jpg);
-    background-position: -4.1rem;
+    background-position: -6.78rem;
 }
 
 .center{
     border: thin solid black;
-    width: 8rem;
-    height: 8rem;
+    width: 6.4rem;
+    height: 6.4rem;
     border-radius: 50%;
     background-color: red;
     color: white;
@@ -39,74 +107,74 @@
 
 .stop{
     position: absolute;
-    width: 2rem;
-    height: 1rem;
+    width: 1.6rem;
+    height: 0.8rem;
     border: thin solid black;
     z-index: 20;
-    top: 2rem;
-    right: 3rem;
+    top: 1.6rem;
+    right: 7.4rem;
     background-color: red;
     transform: rotate(135deg);
 }
 
 img{
   z-index: 200;
-  width: 3rem;
+  width: 2.4rem;
   position: absolute;
 }
 
 #manzana1{
-  top: 3rem;
-  right: 7.5rem;
+  top: 2.4rem;
+  right: 6rem;
 }
 
 #manzana2{
-  top: 7rem;
-  right: 19.5rem;
+  top: 5.6rem;
+  right: 15.6rem;
 }
 
 #manzana3{
-  top:14.5rem;
-  right: 19.5rem;
+  top:11.6rem;
+  right: 15.6rem;
 }
 
 #manzana4{
-  top: 19rem;
-  right: 7.6rem;
+  top: 15.2rem;
+  right: 6.08rem;
 }
 
 #manzana5{
-  top: 14rem;
-  right: 3rem;
+  top: 11.2rem;
+  right: 2.4rem;
 }
 
 h2{
   position: absolute;
   color: white;
   z-index: 200;
-  font-size: 1rem;
+  font-size: 0.8rem;
 
 }
 
 #textoRuleta1{
-  top: 9rem;
-  right: 2rem;
+  top: 7.2rem;
+  right: 1.6rem;
 }
 
 #textoRuleta2{
-  top: 3rem;
-  right: 13rem;
+  top: 2.4rem;
+  right: 10.4rem;
 }
 
 #textoRuleta3{
-  top:19rem;
-  right: 13.5rem;
+  top:15.2rem;
+  right: 10.8rem;
   color: black;
 }
 
 
 .divPremio{
-  width: 12rem;
+  width: 9.6rem;
   height: 12rem;
   position: absolute;
   border: thin solid black;
@@ -163,9 +231,6 @@ justify-content: center;
 align-items: center;
 }
 
-.tipoPremio{
-
-}
 
 .girar1{
     animation-name: rueda1; 

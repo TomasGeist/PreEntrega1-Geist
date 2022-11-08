@@ -3,6 +3,11 @@ let rueda = document.querySelector('.rueda')
 let body = document.querySelector('body')
 
 let parteUno;
+let textBalance = document.querySelector(".textBalance");
+let balance = localStorage.getItem("monedaCorales");
+
+textBalance.textContent = balance + " Corales";
+
 
 
 center.addEventListener('click', ()=>{
@@ -13,6 +18,8 @@ center.addEventListener('click', ()=>{
         monCorales = monCorales - 15
         localStorage.removeItem('monedaCorales')
         localStorage.setItem('monedaCorales', monCorales)
+        
+        textBalance.textContent = monCorales + " Corales";
 
 
     parteUno = (Math.floor(Math.random() * 9)).toString();
@@ -93,6 +100,7 @@ center.addEventListener('click', ()=>{
         monedaCorales = monedaCorales + 40
         localStorage.removeItem('monedaCorales')
         localStorage.setItem('monedaCorales', monedaCorales)
+        textBalance.textContent = monedaCorales + " Corales";
     }
 
     else if(rueda.classList[1] == 'girar8'){
@@ -109,6 +117,8 @@ center.addEventListener('click', ()=>{
         monedaCorales = monedaCorales + 60
         localStorage.removeItem('monedaCorales')
         localStorage.setItem('monedaCorales', monedaCorales)
+        textBalance.textContent = monedaCorales + " Corales";
+
     }
 
     else if(rueda.classList[1] == 'girar2'){
@@ -163,3 +173,4 @@ center.addEventListener('click', ()=>{
 
     
 })
+
