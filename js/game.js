@@ -9,6 +9,7 @@
   let tiendaManzanas = 999999999999;
   let precioManzanas = 5;
   let monedaCorales = 100;
+  let staking = false;
   //registrarUsuario();
   //loguearse();
   //resetearContador();
@@ -379,6 +380,7 @@ function iniciarJuego() {
 
     // AGREGANDO RULETA
     let ruletaDiv = document.createElement('div');
+    ruletaDiv.classList.add('ruletaDiv')
     gameBoxDiv20.appendChild(ruletaDiv)
     let ruletaDivBtn = document.createElement('button');
     ruletaDiv.appendChild(ruletaDivBtn);
@@ -387,9 +389,114 @@ function iniciarJuego() {
     ruletaBtnImg.src = "/assets/imagenes/ruleta.png"
     ruletaDivBtn.appendChild(ruletaBtnImg);
 
-    ruletaDiv.addEventListener('click', ()=>{
+    ruletaDivBtn.addEventListener('click', ()=>{
      location.href = 'https://preentrega1-geist.netlify.app/ruleta/index.html'
     })
+
+    // agregando STAKING
+    let stakingDiv = document.createElement('div');
+    gameBoxDiv20.appendChild(stakingDiv)
+    let stakingBtn = document.createElement('button');
+    ruletaDiv.appendChild(stakingBtn);
+    stakingBtn.classList.add('btnStaking')
+    stakingBtn.textContent = 'STAKING';
+
+    stakingBtn.addEventListener('click', ()=>{
+      let divStakingClick = document.createElement('div');
+      console.log(divStakingClick)
+      divStakingClick.classList.add('divStakingClick')
+      let body = document.querySelector('body');
+      body.appendChild(divStakingClick);
+
+      let cerrar = document.createElement('div');
+    cerrar.classList.add('cerrar')
+    divStakingClick.appendChild(cerrar)
+
+    let izq = document.createElement('div');
+    izq.classList.add('izq')
+    cerrar.appendChild(izq)
+
+    let der = document.createElement('div');
+    der.classList.add('der')
+    cerrar.appendChild(der)
+
+    cerrar.addEventListener('click', ()=> {
+      body.removeChild(divStakingClick)
+   })
+
+   let rangoContainer = document.createElement('div')
+   rangoContainer.classList.add('rangoContainer');
+   divStakingClick.appendChild(rangoContainer)
+
+   let rango = document.createElement('input');
+   rango.type = 'range'
+   rango.min = 1
+   rango.max = monedaCorales;
+   rango.classList.add('rango')
+   rangoContainer.appendChild(rango)
+
+   let valorRango = document.createElement('p');
+   valorRango.classList.add('valorRango');
+   rangoContainer.appendChild(valorRango);
+   valorRango.textContent = "Puedes colocar hasta " + Math.floor(monedaCorales) + " Corales"
+
+   rango.addEventListener('input', ()=>{
+    valorRango.textContent = rango.value + " Corales"
+   })
+
+   rango.addEventListener('input', ()=>{
+    let x = ((rango.value - rango.min) / (rango.max - rango.min) * 100 )
+    let color = 'linear-gradient(90deg, rgb(59, 156, 217)' + x + '%, rgb(212, 242, 248)' + x + '%)';
+    rango.style.background = color;
+   })
+
+
+   let submit = document.createElement('input');
+   submit.type = 'submit'
+   submit.value = "STAKE"
+   submit.classList.add('submitStake')
+   rangoContainer.appendChild(submit)
+
+   submit.addEventListener('click', ()=>{
+    
+    let valorCorales = rango.value
+    monedaCorales = +localStorage.getItem('monedaCorales');
+    localStorage.removeItem('monedaCorales');
+    let parseado = JSON.stringify(monedaCorales-valorCorales)
+    monedaCorales = monedaCorales-valorCorales;
+    localStorage.setItem('monedaCorales', parseado);
+    gameBoxDivInt20P.textContent = "Balance: " + monedaCorales;
+
+    divStakingClick.removeChild(rangoContainer)
+    let divTextoFelicitaciones = document.createElement('div')
+    divTextoFelicitaciones.classList.add('divTextoFelicitaciones');
+    divStakingClick.appendChild(divTextoFelicitaciones)
+    let textoFelicitaciones = document.createElement('h2');
+    textoFelicitaciones.textContent =  `Felicitaciones! Bloqueaste ${rango.value} corales. En 1 semana, tendras ${(Number(rango.value) + ((rango.value)*0.125))} Corales a tu disposición.`
+    divTextoFelicitaciones.appendChild(textoFelicitaciones);
+
+   })
+
+
+   let divTextoExplicaStake = document.createElement('div');
+   divTextoExplicaStake.classList.add('divTextoExplicaStake');
+   rangoContainer.appendChild(divTextoExplicaStake)
+   let textoExplicaStake = document.createElement('p');
+   textoExplicaStake.innerHTML = 'ATENCION: recuerda que al hacer click en STAKE tus corales se bloquearan durante una semana y no podrás utilizarlos hasta esa fecha. Una vez que aprietes en "STAKE", no hay vuelta atras. <br><br> Finalizado el tiempo del stake se acreditaran los beneficios en tu cuenta. <br> Actualmente CoderToFish te paga un 12.5% semanal de los corales que tengas bloqueados. <br> Para mas información lee nuestra wiki.'
+   divTextoExplicaStake.appendChild(textoExplicaStake)
+
+
+
+
+
+
+
+
+   })
+
+   
+  
+
   }
 
   function alimentar() {
