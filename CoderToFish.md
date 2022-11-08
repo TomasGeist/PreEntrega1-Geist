@@ -53,7 +53,7 @@ La ruleta será accesible mediante un icono que podrás encontrar en tu pantalla
 
 En la ruleta podrás obtener objetos únicos y peces de edición limitada que estarán disponibles poco tiempo.
 
-Cada tirada de la ruleta tendrá un coste de 20 corales.
+Cada tirada de la ruleta tendrá un coste de 15 corales.
 
 Cada recompensa tiene un porcentaje de salir, podrás consultarlo aqui debajo:
 

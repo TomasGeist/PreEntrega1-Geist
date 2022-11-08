@@ -344,7 +344,7 @@ function iniciarJuego() {
   muestraPescado.classList.add("muestraPescadoGame");
   gameBoxDiv20.appendChild(gameBoxDivInt20);
   gameBoxDivInt20.appendChild(gameBoxDivInt20P);
-  gameBoxDivInt20P.textContent = "Balance: " + monedaCorales;
+  gameBoxDivInt20P.textContent = monedaCorales + " Corales";
   btnAlimentar.addEventListener("click", alimentando);
   function alimentando(alimentando) {
     alimentar();
@@ -435,11 +435,17 @@ function iniciarJuego() {
           minutosSubmit = 59;
           segundosSubmit = 60;
 
+
+
           clearInterval(tiempoSubmit);
           console.log("fin");
           stakingBtn.style.opacity = 1;
           stakingBtn.disabled = false;
           stakingBtn.textContent = "STAKING";
+           let coralesInversion = localStorage.getItem("coralesInversion");
+           monedaCorales += Number(coralesInversion) + Number(coralesInversion * 0.125);
+          gameBoxDivInt20P.textContent = monedaCorales.toFixed(2) + " Corales";
+          localStorage.setItem("monedaCorales", monedaCorales);
         }
       }, 1000);
     }
@@ -565,11 +571,16 @@ function iniciarJuego() {
           minutosSubmit = 59;
           segundosSubmit = 60;
 
+          let coralesInversion = localStorage.getItem("coralesInversion");
+          monedaCorales = monedaCorales + (coralesInversion + (coralesInversion * 0.125));
+          gameBoxDivInt20P.textContent = monedaCorales.toFixed(2) + " Corales";
+
           clearInterval(tiempoSubmit);
           console.log("fin");
           stakingBtn.style.opacity = 1;
           stakingBtn.disabled = false;
           stakingBtn.textContent = "STAKING";
+          
         }
       }, 1000);
     }
@@ -584,7 +595,7 @@ function iniciarJuego() {
       let parseado = JSON.stringify(monedaCorales - valorCorales);
       monedaCorales = monedaCorales - valorCorales;
       localStorage.setItem("monedaCorales", parseado);
-      gameBoxDivInt20P.textContent = "Balance: " + monedaCorales.toFixed(2);
+      gameBoxDivInt20P.textContent = monedaCorales.toFixed(2) + " Corales";
 
       divStakingClick.removeChild(rangoContainer);
       let divTextoFelicitaciones = document.createElement("div");
@@ -702,6 +713,12 @@ function iniciarJuego() {
   btnRegaloDiario.addEventListener("click", iniciarContador);
 
   function iniciarContador() {
+    peceraComida = peceraComida + 1;
+    localStorage.setItem('peceraComida', peceraComida)
+    textCantidadManzanas.textContent = "Tienes " + peceraComida;
+
+
+
     localStorage.setItem("hora", hora);
     localStorage.setItem("minutos", minutos);
     localStorage.setItem("segundos", segundos);
@@ -751,6 +768,8 @@ function iniciarJuego() {
         btnRegaloDiario.style.opacity = 1;
         btnRegaloDiario.disabled = false;
         btnRegaloDiario.textContent = "Claim";
+        
+
       }
     }, 1000);
   }
@@ -812,7 +831,7 @@ function alimentar() {
 
         informacionPescadoAlimento.textContent =
           "ALIMENTOS: " + pescadosCreados[pescadosCreados.length - 1].alimento;
-        gameBoxDivInt20P.textContent = "Balance: " + monedaCorales.toFixed(2);
+        gameBoxDivInt20P.textContent = monedaCorales.toFixed(2) + " Corales";
         textCantidadManzanas.textContent = "Tienes " + peceraComida;
 
         subirNivel();
@@ -874,7 +893,7 @@ function alimentar() {
 
         informacionPescadoAlimento.textContent =
           "ALIMENTOS: " + pescadosCreados[pescadosCreados.length - 1].alimento;
-        gameBoxDivInt20P.textContent = "Balance: " + monedaCorales.toFixed(2);
+        gameBoxDivInt20P.textContent = monedaCorales.toFixed(2) + " Corales";
         textCantidadManzanas.textContent = "Tienes " + peceraComida;
         subirNivel();
       }
@@ -937,7 +956,7 @@ function alimentar() {
 
         informacionPescadoAlimento.textContent =
           "ALIMENTOS: " + pescadosCreados[pescadosCreados.length - 1].alimento;
-        gameBoxDivInt20P.textContent = "Balance: " + monedaCorales.toFixed(2);
+        gameBoxDivInt20P.textContent = monedaCorales.toFixed(2) + " Corales";
         textCantidadManzanas.textContent = "Tienes " + peceraComida;
         subirNivel();
       }
@@ -997,7 +1016,7 @@ function alimentar() {
 
         informacionPescadoAlimento.textContent =
           "ALIMENTOS: " + pescadosCreados[pescadosCreados.length - 1].alimento;
-        gameBoxDivInt20P.textContent = "Balance: " + monedaCorales.toFixed(2);
+        gameBoxDivInt20P.textContent = monedaCorales.toFixed(2) + " Corales";
         textCantidadManzanas.textContent = "Tienes " + peceraComida;
         subirNivel();
       }
@@ -1060,7 +1079,7 @@ function alimentar() {
 
         informacionPescadoAlimento.textContent =
           "ALIMENTOS: " + pescadosCreados[pescadosCreados.length - 1].alimento;
-        gameBoxDivInt20P.textContent = "Balance: " + monedaCorales.toFixed(2);
+        gameBoxDivInt20P.textContent = monedaCorales.toFixed(2) + " Corales";
         textCantidadManzanas.textContent = "Tienes " + peceraComida;
         subirNivel();
       }
@@ -1087,7 +1106,7 @@ function comprarComida() {
 
       textCantidadManzanas.textContent = "Tienes " + peceraComida;
       monedaCorales -= 5;
-      gameBoxDivInt20P.textContent = "Balance: " + monedaCorales.toFixed(2);
+      gameBoxDivInt20P.textContent = monedaCorales.toFixed(2) + " Corales";
 
       localStorage.removeItem("monedaCorales");
       localStorage.setItem("monedaCorales", JSON.stringify(monedaCorales));
@@ -1122,7 +1141,7 @@ function subirNivel() {
 function comprarTodo() {
   for (i = 0; i < monedaCorales + i; i++) {
     comprarComida();
-    gameBoxDivInt20P.textContent = "Balance: " + monedaCorales.toFixed(2);
+    gameBoxDivInt20P.textContent = monedaCorales.toFixed(2) + " Corales";
   }
 }
 

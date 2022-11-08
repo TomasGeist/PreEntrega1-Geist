@@ -162,6 +162,7 @@ padding-bottom: 2rem;
 
 .gameBoxDiv20 p:first-of-type{
   font-size: .8rem;
+  font-weight: 100;
   color:white;
   background-color: #0A4273;
   width: 4rem;
