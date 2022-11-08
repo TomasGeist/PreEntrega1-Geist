@@ -318,7 +318,7 @@ if (pescadosCreados[pescadosCreados.length - 1].nombre === "Pez Sardina") {
   let btnComprarAlimento = document.createElement("button");
 
 function iniciarJuego() {
-  peceraComida = JSON.parse(localStorage.getItem('peceraComida'));
+  peceraComida = JSON.parse(localStorage.getItem("peceraComida"));
   pescadoAlimento = JSON.parse(localStorage.getItem("pescadoAlimento"));
   monedaCorales = JSON.parse(localStorage.getItem("monedaCorales"));
 
@@ -326,178 +326,503 @@ function iniciarJuego() {
     pescadoAlimento = 0;
   }
 
- if (peceraComida === null) {
-   peceraComida = 0;
+  if (peceraComida === null) {
+    peceraComida = 0;
   }
   if (monedaCorales === null) {
     monedaCorales = 100;
   }
 
   monedaCorales = Number(monedaCorales.toFixed(2));
-  
 
-  pescadosCreados[pescadosCreados.length - 1].alimento = pescadoAlimento; 
-
-
+  pescadosCreados[pescadosCreados.length - 1].alimento = pescadoAlimento;
 
   informacionPescadoAlimento.textContent =
     "ALIMENTOS: " + pescadosCreados[pescadosCreados.length - 1].alimento;
 
-
-  
-  
-    gameBox.appendChild(gameBoxDiv20);
-    gameBox.appendChild(gameBoxDiv60);
-    gameBox.appendChild(gameBoxDiv40);
-    gameBoxDiv20.classList.add("gameBoxDiv20");
-    gameBoxDiv60.classList.add("gameBoxDiv60");
-    gameBoxDiv40.classList.add("gameBoxDiv40");
-    gameBoxDiv40.appendChild(gameBoxDivInt40);
-    gameBoxDivInt40.classList.add("gameBoxDivInt40");
-    muestraPescado.classList.remove("none");
-    gameBoxDiv60.appendChild(muestraPescado);
-    muestraPescado.classList.add("muestraPescadoGame");
-    gameBoxDiv20.appendChild(gameBoxDivInt20);
-    gameBoxDivInt20.appendChild(gameBoxDivInt20P);
-    gameBoxDivInt20P.textContent = "Balance: " + monedaCorales;
-    btnAlimentar.addEventListener("click", alimentando);
-    function alimentando(alimentando) {
-      alimentar();
-    }
-    gameBoxDivInt40.appendChild(gameBoxDivInt40Target);
-    gameBoxDivInt40Target.classList.add("gameBoxDivInt40Target");
-    gameBoxDivInt40Target.appendChild(manzana);
-    manzana.src = "/assets/imagenes/manzana.png";
-    gameBoxDivInt40Target.appendChild(textCantidadManzanas);
-    textCantidadManzanas.textContent = "Tienes " + peceraComida;
-    gameBoxDivInt40Target.appendChild(btnComprarAlimento);
-    btnComprarAlimento.classList.add("btn", "btn-chico");
-    btnComprarAlimento.textContent = "Comprar";
-    btnComprarAlimento.addEventListener("click", comprando);
-    function comprando(comprando) {
-      comprarComida();
-    }
-
-    // AGREGANDO RULETA
-    let ruletaDiv = document.createElement('div');
-    ruletaDiv.classList.add('ruletaDiv')
-    gameBoxDiv20.appendChild(ruletaDiv)
-    let ruletaDivBtn = document.createElement('button');
-    ruletaDiv.appendChild(ruletaDivBtn);
-    ruletaDivBtn.classList.add('btnRuleta')
-    let ruletaBtnImg = document.createElement('img');
-    ruletaBtnImg.src = "/assets/imagenes/ruleta.png"
-    ruletaDivBtn.appendChild(ruletaBtnImg);
-
-    ruletaDivBtn.addEventListener('click', ()=>{
-     location.href = 'https://preentrega1-geist.netlify.app/ruleta/index.html'
-    })
-
-    // agregando STAKING
-    let stakingDiv = document.createElement('div');
-    gameBoxDiv20.appendChild(stakingDiv)
-    let stakingBtn = document.createElement('button');
-    ruletaDiv.appendChild(stakingBtn);
-    stakingBtn.classList.add('btnStaking')
-    stakingBtn.textContent = 'STAKING';
-
-    stakingBtn.addEventListener('click', ()=>{
-      let divStakingClick = document.createElement('div');
-      console.log(divStakingClick)
-      divStakingClick.classList.add('divStakingClick')
-      let body = document.querySelector('body');
-      body.appendChild(divStakingClick);
-
-      let cerrar = document.createElement('div');
-    cerrar.classList.add('cerrar')
-    divStakingClick.appendChild(cerrar)
-
-    let izq = document.createElement('div');
-    izq.classList.add('izq')
-    cerrar.appendChild(izq)
-
-    let der = document.createElement('div');
-    der.classList.add('der')
-    cerrar.appendChild(der)
-
-    cerrar.addEventListener('click', ()=> {
-      body.removeChild(divStakingClick)
-   })
-
-   let rangoContainer = document.createElement('div')
-   rangoContainer.classList.add('rangoContainer');
-   divStakingClick.appendChild(rangoContainer)
-
-   let rango = document.createElement('input');
-   rango.type = 'range'
-   rango.min = 1
-   rango.max = monedaCorales;
-   rango.classList.add('rango')
-   rangoContainer.appendChild(rango)
-
-   let valorRango = document.createElement('p');
-   valorRango.classList.add('valorRango');
-   rangoContainer.appendChild(valorRango);
-   valorRango.textContent = "Puedes colocar hasta " + Math.floor(monedaCorales) + " Corales"
-
-   rango.addEventListener('input', ()=>{
-    valorRango.textContent = rango.value + " Corales"
-   })
-
-   rango.addEventListener('input', ()=>{
-    let x = ((rango.value - rango.min) / (rango.max - rango.min) * 100 )
-    let color = 'linear-gradient(90deg, rgb(59, 156, 217)' + x + '%, rgb(212, 242, 248)' + x + '%)';
-    rango.style.background = color;
-   })
-
-
-   let submit = document.createElement('input');
-   submit.type = 'submit'
-   submit.value = "STAKE"
-   submit.classList.add('submitStake')
-   rangoContainer.appendChild(submit)
-
-   submit.addEventListener('click', ()=>{
-    
-    let valorCorales = rango.value
-    monedaCorales = +localStorage.getItem('monedaCorales');
-    localStorage.removeItem('monedaCorales');
-    let parseado = JSON.stringify(monedaCorales-valorCorales)
-    monedaCorales = monedaCorales-valorCorales;
-    localStorage.setItem('monedaCorales', parseado);
-    gameBoxDivInt20P.textContent = "Balance: " + monedaCorales;
-
-    divStakingClick.removeChild(rangoContainer)
-    let divTextoFelicitaciones = document.createElement('div')
-    divTextoFelicitaciones.classList.add('divTextoFelicitaciones');
-    divStakingClick.appendChild(divTextoFelicitaciones)
-    let textoFelicitaciones = document.createElement('h2');
-    textoFelicitaciones.textContent =  `Felicitaciones! Bloqueaste ${rango.value} corales. En 1 semana, tendras ${(Number(rango.value) + ((rango.value)*0.125))} Corales a tu disposición.`
-    divTextoFelicitaciones.appendChild(textoFelicitaciones);
-
-   })
-
-
-   let divTextoExplicaStake = document.createElement('div');
-   divTextoExplicaStake.classList.add('divTextoExplicaStake');
-   rangoContainer.appendChild(divTextoExplicaStake)
-   let textoExplicaStake = document.createElement('p');
-   textoExplicaStake.innerHTML = 'ATENCION: recuerda que al hacer click en STAKE tus corales se bloquearan durante una semana y no podrás utilizarlos hasta esa fecha. Una vez que aprietes en "STAKE", no hay vuelta atras. <br><br> Finalizado el tiempo del stake se acreditaran los beneficios en tu cuenta. <br> Actualmente CoderToFish te paga un 12.5% semanal de los corales que tengas bloqueados. <br> Para mas información lee nuestra wiki.'
-   divTextoExplicaStake.appendChild(textoExplicaStake)
-
-
-
-
-
-
-
-
-   })
-
-   
-  
-
+  gameBox.appendChild(gameBoxDiv20);
+  gameBox.appendChild(gameBoxDiv60);
+  gameBox.appendChild(gameBoxDiv40);
+  gameBoxDiv20.classList.add("gameBoxDiv20");
+  gameBoxDiv60.classList.add("gameBoxDiv60");
+  gameBoxDiv40.classList.add("gameBoxDiv40");
+  gameBoxDiv40.appendChild(gameBoxDivInt40);
+  gameBoxDivInt40.classList.add("gameBoxDivInt40");
+  muestraPescado.classList.remove("none");
+  gameBoxDiv60.appendChild(muestraPescado);
+  muestraPescado.classList.add("muestraPescadoGame");
+  gameBoxDiv20.appendChild(gameBoxDivInt20);
+  gameBoxDivInt20.appendChild(gameBoxDivInt20P);
+  gameBoxDivInt20P.textContent = "Balance: " + monedaCorales;
+  btnAlimentar.addEventListener("click", alimentando);
+  function alimentando(alimentando) {
+    alimentar();
   }
+  gameBoxDivInt40.appendChild(gameBoxDivInt40Target);
+  gameBoxDivInt40Target.classList.add("gameBoxDivInt40Target");
+  gameBoxDivInt40Target.appendChild(manzana);
+  manzana.src = "/assets/imagenes/manzana.png";
+  gameBoxDivInt40Target.appendChild(textCantidadManzanas);
+  textCantidadManzanas.textContent = "Tienes " + peceraComida;
+  gameBoxDivInt40Target.appendChild(btnComprarAlimento);
+  btnComprarAlimento.classList.add("btn", "btn-chico");
+  btnComprarAlimento.textContent = "Comprar";
+  btnComprarAlimento.addEventListener("click", comprando);
+  function comprando(comprando) {
+    comprarComida();
+  }
+
+  //recopilando staking
+
+  let hora = Number(localStorage.getItem("hora"));
+  let minutos = Number(localStorage.getItem("minutos"));
+  let segundos = Number(localStorage.getItem("segundos"));
+  let horaRegalo = Number(localStorage.getItem("horaRegalo"));
+  let minutosRegalo = Number(localStorage.getItem("minutosRegalo"));
+  let segundosRegalo = Number(localStorage.getItem("segundosRegalo"));
+
+
+  // AGREGANDO RULETA
+  let ruletaDiv = document.createElement("div");
+  ruletaDiv.classList.add("ruletaDiv");
+  gameBoxDiv20.appendChild(ruletaDiv);
+  let ruletaDivBtn = document.createElement("button");
+  ruletaDiv.appendChild(ruletaDivBtn);
+  ruletaDivBtn.classList.add("btnRuleta");
+  let ruletaBtnImg = document.createElement("img");
+  ruletaBtnImg.src = "/assets/imagenes/ruleta.png";
+  ruletaDivBtn.appendChild(ruletaBtnImg);
+
+  ruletaDivBtn.addEventListener("click", () => {
+    location.href = "https://preentrega1-geist.netlify.app/ruleta/index.html";
+  });
+
+  // agregando STAKING
+  let stakingDiv = document.createElement("div");
+  gameBoxDiv20.appendChild(stakingDiv);
+  let stakingBtn = document.createElement("button");
+  ruletaDiv.appendChild(stakingBtn);
+  stakingBtn.classList.add("btnStaking");
+  stakingBtn.textContent = "STAKING";
+
+  // INICIALIZANDO CONTADOR STAKING
+  stakingBtn.disabled = true;
+  stakingBtn.style.opacity = 0.7;
+
+  let tiempo = setInterval(() => {
+    if (segundos == 0) {
+      segundos = 60;
+      localStorage.setItem("segundos", segundos);
+      minutos = minutos - 1;
+      localStorage.setItem("minutos", minutos);
+      if (minutos == 0) {
+        minutos = 60;
+        localStorage.setItem("minutos", minutos);
+        hora = hora - 1;
+        localStorage.setItem("hora", hora);
+
+        console.log(hora);
+      }
+    }
+
+    segundos = segundos - 1;
+    localStorage.setItem("segundos", segundos);
+
+    if (segundos < 10) {
+      segundos = "0" + segundos;
+      localStorage.setItem("segundos", segundos);
+    }
+
+    stakingBtn.textContent = hora + ":" + minutos + ":" + segundos;
+    stakingBtn.style.fontSize = ".6rem";
+
+    if (hora == 0 && minutos == 1 && segundos == 1) {
+      segundos = 0;
+
+      clearInterval(tiempo);
+      console.log("fin");
+      stakingBtn.disabled = false;
+      stakingBtn.textContent = "Staking";
+      let misCorales = localStorage.getItem("coralesInversion");
+      monedaCorales += Number(misCorales) + Number(misCorales) * 0.125;
+      localStorage.setItem("monedaCorales", monedaCorales);
+      gameBoxDivInt20P.textContent = "Balance: " + monedaCorales.toFixed(2);
+    }
+  }, 1000);
+
+  //FIN INICIALIZACION
+
+  stakingBtn.addEventListener("click", () => {
+    let divStakingClick = document.createElement("div");
+    console.log(divStakingClick);
+    divStakingClick.classList.add("divStakingClick");
+    let body = document.querySelector("body");
+    body.appendChild(divStakingClick);
+
+    let cerrar = document.createElement("div");
+    cerrar.classList.add("cerrar");
+    divStakingClick.appendChild(cerrar);
+
+    let izq = document.createElement("div");
+    izq.classList.add("izq");
+    cerrar.appendChild(izq);
+
+    let der = document.createElement("div");
+    der.classList.add("der");
+    cerrar.appendChild(der);
+
+    cerrar.addEventListener("click", () => {
+      body.removeChild(divStakingClick);
+    });
+
+    let rangoContainer = document.createElement("div");
+    rangoContainer.classList.add("rangoContainer");
+    divStakingClick.appendChild(rangoContainer);
+
+    let rango = document.createElement("input");
+    rango.type = "range";
+    rango.min = 1;
+    rango.max = monedaCorales;
+    rango.classList.add("rango");
+    rangoContainer.appendChild(rango);
+
+    let valorRango = document.createElement("p");
+    valorRango.classList.add("valorRango");
+    rangoContainer.appendChild(valorRango);
+    valorRango.textContent =
+      "Puedes colocar hasta " + Math.floor(monedaCorales) + " Corales";
+
+    rango.addEventListener("input", () => {
+      valorRango.textContent = rango.value + " Corales";
+    });
+
+    rango.addEventListener("input", () => {
+      let x = ((rango.value - rango.min) / (rango.max - rango.min)) * 100;
+      let color =
+        "linear-gradient(90deg, rgb(59, 156, 217)" +
+        x +
+        "%, rgb(212, 242, 248)" +
+        x +
+        "%)";
+      rango.style.background = color;
+    });
+
+    let submit = document.createElement("input");
+    submit.type = "submit";
+    submit.value = "STAKE";
+    submit.classList.add("submitStake");
+    rangoContainer.appendChild(submit);
+
+    submit.addEventListener("click", () => {
+      let valorCorales = rango.value;
+      monedaCorales = +localStorage.getItem("monedaCorales");
+      localStorage.removeItem("monedaCorales");
+      let parseado = JSON.stringify(monedaCorales - valorCorales);
+      monedaCorales = monedaCorales - valorCorales;
+      localStorage.setItem("monedaCorales", parseado);
+      gameBoxDivInt20P.textContent = "Balance: " + monedaCorales.toFixed(2);
+
+      divStakingClick.removeChild(rangoContainer);
+      let divTextoFelicitaciones = document.createElement("div");
+      divTextoFelicitaciones.classList.add("divTextoFelicitaciones");
+      divStakingClick.appendChild(divTextoFelicitaciones);
+      let textoFelicitaciones = document.createElement("h2");
+      textoFelicitaciones.innerHTML = `<span>¡Felicitaciones!</span> <br><br> Bloqueaste ${
+        rango.value
+      } corales. En 1 semana, tendras ${
+        Number(rango.value) + rango.value * 0.125
+      } Corales a tu disposición.`;
+      divTextoFelicitaciones.appendChild(textoFelicitaciones);
+
+      let now = new Date();
+      let now2 = new Date();
+      let fechaLiberacion;
+
+      function sumarDias(fecha, dias) {
+        fecha.setDate(fecha.getDate() + dias);
+        return fecha;
+      }
+
+      fechaLiberacion = sumarDias(now, 7);
+
+      //VARIABLES PARA STORAGE
+      let storageFechaLiberacion = `${fechaLiberacion.getDate()}:${
+        fechaLiberacion.getMonth() + 1
+      }:${fechaLiberacion.getFullYear()}`;
+      let storageFechaActual = `${now2.getDate()}:${
+        now2.getMonth() + 1
+      }:${now2.getFullYear()}`;
+      let storageCoralesInversion = rango.value;
+
+      if (localStorage.getItem("fechaActual")) {
+        let ultimaFecha = localStorage.getItem("fechaActual");
+        let ultimaLiberacion = localStorage.getItem("fechaLiberacion");
+        let ultimaInversion = localStorage.getItem("coralesInversion");
+        //FIN VARIABLES PARA STORAGE
+
+        let divHistorialStaking = document.createElement("div");
+        divHistorialStaking.classList.add("divHistorialStaking");
+        divTextoFelicitaciones.appendChild(divHistorialStaking);
+        let h2 = document.createElement("h2");
+        h2.textContent = "Tu último movimiento de Stake";
+        divHistorialStaking.appendChild(h2);
+
+        let historialStaking = document.createElement("ol");
+        divHistorialStaking.appendChild(historialStaking);
+        let li = document.createElement("li");
+        li.textContent = `Inversion: ${ultimaInversion} Corales | Fecha: ${ultimaFecha} | Fecha de liberacion: ${ultimaLiberacion}`;
+        historialStaking.appendChild(li);
+
+        localStorage.setItem("fechaActual", storageFechaActual);
+        localStorage.setItem("fechaLiberacion", storageFechaLiberacion);
+        localStorage.setItem("coralesInversion", storageCoralesInversion);
+      } else {
+        let divHistorialStaking = document.createElement("div");
+        divHistorialStaking.classList.add("divHistorialStaking");
+        divTextoFelicitaciones.appendChild(divHistorialStaking);
+        let p = document.createElement("p");
+        p.innerHTML =
+          "<span>Es tu primer movimiento de STAKE</span> <br><br> Aqui aparecera tu ultimo movimiento.";
+        divHistorialStaking.appendChild(p);
+
+        localStorage.setItem("fechaActual", storageFechaActual);
+        localStorage.setItem("fechaLiberacion", storageFechaLiberacion);
+        localStorage.setItem("coralesInversion", storageCoralesInversion);
+      }
+
+      //FUNCION CONTADOR
+      if (!localStorage.getItem("hora")) {
+        let hora = 167;
+        let minutos = 59;
+        let segundos = 60;
+
+        localStorage.setItem("hora", hora);
+
+        localStorage.setItem("minutos", minutos);
+
+        localStorage.setItem("segundos", segundos);
+
+        stakingBtn.disabled = true;
+        stakingBtn.style.opacity = 0.7;
+
+        let tiempo = setInterval(() => {
+          if (segundos == 0) {
+            segundos = 60;
+            localStorage.setItem("segundos", segundos);
+            minutos = minutos - 1;
+            localStorage.setItem("minutos", minutos);
+            if (minutos == 0) {
+              minutos = 60;
+              localStorage.setItem("minutos", minutos);
+              hora = hora - 1;
+              localStorage.setItem("hora", hora);
+
+              console.log(hora);
+            }
+          }
+
+          segundos = segundos - 1;
+          localStorage.setItem("segundos", segundos);
+
+          if (segundos < 10) {
+            segundos = "0" + segundos;
+            localStorage.setItem("segundos", (segundos = "0" + segundos));
+          }
+
+          stakingBtn.textContent = hora + ":" + minutos + ":" + segundos;
+          stakingBtn.style.fontSize = ".6rem";
+
+          if (hora == 0 && minutos == 1 && segundos == 1) {
+            segundos = 0;
+
+            clearInterval(tiempo);
+            console.log("fin");
+            stakingBtn.disabled = false;
+            stakingBtn.style.opacity = 1;
+
+            stakingBtn.textContent = "Staking";
+            let misCorales = localStorage.getItem("coralesInversion");
+            monedaCorales += Number(misCorales) + Number(misCorales) * 0.125;
+            localStorage.setItem("monedaCorales", monedaCorales);
+            gameBoxDivInt20P.textContent =
+              "Balance: " + monedaCorales.toFixed(2);
+          }
+        }, 1000);
+      }
+    });
+
+    let divTextoExplicaStake = document.createElement("div");
+    divTextoExplicaStake.classList.add("divTextoExplicaStake");
+    rangoContainer.appendChild(divTextoExplicaStake);
+    let textoExplicaStake = document.createElement("p");
+    textoExplicaStake.innerHTML =
+      'ATENCION: recuerda que al hacer click en STAKE tus corales se bloquearan durante una semana y no podrás utilizarlos hasta esa fecha. Una vez que aprietes en "STAKE", no hay vuelta atras. <br><br> Finalizado el tiempo del stake se acreditaran los beneficios en tu cuenta. <br> Actualmente CoderToFish te paga un 12.5% semanal de los corales que tengas bloqueados. <br> Para mas información lee nuestra wiki.';
+    divTextoExplicaStake.appendChild(textoExplicaStake);
+  });
+
+
+
+
+
+  //agregando regalo diario
+
+  let regaloDiarioBtn = document.createElement("button");
+  ruletaDiv.appendChild(regaloDiarioBtn);
+  regaloDiarioBtn.classList.add("btnRuleta");
+  let regaloDiarioImg = document.createElement("img");
+  regaloDiarioImg.src = "/assets/imagenes/manzana.png";
+  regaloDiarioBtn.appendChild(regaloDiarioImg);
+
+
+
+
+
+  // INICIALIZANDO CONTADOR REGALO DIARIO
+  if (localStorage.getItem("horaRegalo")) {
+    regaloDiarioBtn.classList.add("btnManzana");
+
+    regaloDiarioBtn.disabled = true;
+    regaloDiarioBtn.style.opacity = 0.7;
+
+    let tiempoRegalo = setInterval(() => {
+      if (segundosRegalo == 0) {
+        segundosRegalo = 60;
+        localStorage.setItem("segundosRegalo", segundosRegalo);
+        minutosRegalo = minutos - 1;
+        localStorage.setItem("minutosRegalo", minutosRegalo);
+        if (minutosRegalo == 0) {
+          minutosRegalo = 60;
+          localStorage.setItem("minutosRegalo", minutosRegalo);
+          hora = hora - 1;
+          localStorage.setItem("horaRegalo", horaRegalo);
+
+          console.log(horaRegalo);
+        }
+      }
+
+      segundosRegalo = segundosRegalo - 1;
+      localStorage.setItem("segundosRegalo", segundosRegalo);
+
+      if (segundosRegalo < 10) {
+        segundosRegalo = "0" + segundosRegalo;
+        localStorage.setItem("segundosRegalo", segundosRegalo);
+      }
+
+      regaloDiarioBtn.textContent =
+        horaRegalo + ":" + minutosRegalo + ":" + segundosRegalo;
+      regaloDiarioBtn.style.fontSize = ".6rem";
+
+      if (horaRegalo == 0 && minutosRegalo == 1 && segundosRegalo == 1) {
+        segundosRegalo = 0;
+
+        clearInterval(tiempoRegalo);
+        console.log("fin");
+        regaloDiarioBtn.disabled = false;
+        regaloDiarioImg.src = "/assets/imagenes/manzana.png";
+      }
+    }, 1000);
+  }
+
+
+
+
+
+
+  //FIN DE CONTADOR REGALO DIARIO
+
+
+
+
+
+
+
+
+
+  regaloDiarioBtn.addEventListener("click", () => {
+    let regaloAlert = document.createElement("h2");
+    regaloAlert.classList.add("regaloAlert");
+    regaloAlert.textContent = "+1 Manzana";
+    let body = document.querySelector("body");
+    body.appendChild(regaloAlert);
+    setTimeout(() => {
+      body.removeChild(regaloAlert);
+    }, 1000);
+
+
+
+
+
+    //funcion contador
+
+    if (!localStorage.getItem("horaRegalo")) {
+      peceraComida += 1;
+      localStorage.setItem("peceraComida", peceraComida);
+      textCantidadManzanas.textContent = "Tienes " + peceraComida;
+      regaloDiarioBtn.classList.add("btnManzana");
+
+      let horaRegalo = 23;
+      let minutosRegalo = 59;
+      let segundosRegalo = 60;
+
+      localStorage.setItem("horaRegalo", horaRegalo);
+
+      localStorage.setItem("minutosRegalo", minutosRegalo);
+
+      localStorage.setItem("segundosRegalo", segundosRegalo);
+
+      regaloDiarioBtn.disabled = true;
+      regaloDiarioBtn.style.opacity = 0.7;
+
+      let tiempoRegalo = setInterval(() => {
+        if (segundosRegalo == 0) {
+          segundosRegalo = 60;
+          localStorage.setItem("segundosRegalo", segundosRegalo);
+          minutosRegalo = minutos - 1;
+          localStorage.setItem("minutosRegalo", minutosRegalo);
+          if (minutosRegalo == 0) {
+            minutosRegalo = 60;
+            localStorage.setItem("minutosRegalo", minutosRegalo);
+            hora = hora - 1;
+            localStorage.setItem("horaRegalo", horaRegalo);
+
+            console.log(horaRegalo);
+          }
+        }
+
+        segundosRegalo = segundosRegalo - 1;
+        localStorage.setItem("segundosRegalo", segundosRegalo);
+
+        if (segundosRegalo < 10) {
+          segundosRegalo = "0" + segundosRegalo;
+          localStorage.setItem(
+            "segundosRegalo",
+            (segundosRegalo = "0" + segundosRegalo)
+          );
+        }
+
+        regaloDiarioBtn.textContent =
+          horaRegalo + ":" + minutosRegalo + ":" + segundosRegalo;
+        regaloDiarioBtn.style.fontSize = ".6rem";
+
+        if (horaRegalo == 0 && minutosRegalo == 1 && segundosRegalo == 1) {
+          segundosRegalo = 0;
+          regaloDiarioBtn.disabled = false; 
+          regaloDiarioImg.src = "/assets/imagenes/manzana.png";
+          localStorage.removeItem('horaRegalo')
+          localStorage.removeItem('minutosRegalo')
+          localStorage.removeItem('segundosRegalo')
+          clearInterval(tiempoRegalo);
+          console.log("fin");
+          regaloDiarioBtn.textContent = ""
+            regaloDiarioBtn.classList.remove("btnManzana");
+          regaloDiarioBtn.style.opacity = 1;
+          regaloAlert.classList.add("regaloAlert");
+
+        }
+      }, 1000);
+    }
+  });
+}
 
   function alimentar() {
     //sardina

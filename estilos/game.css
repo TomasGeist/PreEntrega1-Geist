@@ -164,13 +164,12 @@ padding-bottom: 2rem;
   width: 18rem;
   border: thin solid black;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .btnRuleta{
 width: 1.8rem;
 height: 1.8rem;
-margin-left: 2rem;
 position: relative;
 background-color: var(--paleta-color-1);
 cursor: pointer;
@@ -293,6 +292,7 @@ cursor: pointer;
   box-shadow: 0px 10px 1rem black;
   width: 80%;
   background-color: #71c6d9;
+
 }
 
 .divTextoExplicaStake p{
@@ -300,6 +300,92 @@ cursor: pointer;
   font-size: .8rem;
   font-weight: bold;
   padding: .5rem;
+}
+
+.divTextoFelicitaciones{
+width: 100%;
+box-shadow: 0px 10px 1rem black;
+color: white;
+font-size: 1rem;
+font-weight: bold;
+display: flex;
+margin-top: 3rem;
+justify-content: center;
+align-items: center;
+border: medium solid var(--paleta-color-2);
+flex-direction: column;
+}
+
+.divTextoFelicitaciones h2{
+  font-size: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.divTextoFelicitaciones span{
+  color: white;
+ font-style: italic;
+}
+
+.divHistorialStaking{
+width: 100%;
+box-shadow: 2px 10px 1rem black;
+color: white;
+font-size: 1rem;
+font-weight: bold;
+display: flex;
+margin-top: 3rem;
+justify-content: center;
+align-items: center;
+border: medium solid var(--paleta-color-2);
+font-size: .75rem;
+height: 13rem;
+background-color: var(--paleta-color-3);
+
+}
+
+.divHistorialStaking h2{
+  font-size: 2rem;
+}
+
+.divHistorialStaking span{
+  font-size: 2rem ;
+  text-align: center;
+  font-style: normal;
+}
+
+.divHistorialStaking p{
+    text-align: center;
+  
+}
+
+.regaloAlert{
+  position: absolute;
+  top: 4rem;
+  right: 16rem;
+  z-index: 300;
+  color: black ;
+  font-size: .8rem;
+  animation: cambiar 1s;
+}
+
+@keyframes cambiar{
+0%{
+  top: 4rem;
+  right: 16rem;
+}
+10%{top: 3.5rem;}
+25%{top: 3rem;}
+35%{top: 2.5rem;}
+50%{top: 2rem;}
+65%{top: 1.5rem;}
+75%{top: 1rem;}
+100%{top: -200rem;}
+}
+
+.btnManzana{
+  width: 4.5rem;
+  color: white;
 }
 
 
