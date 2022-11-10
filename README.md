@@ -10,55 +10,54 @@ Nulos para ser exactos, porque es una red de prueba je
 
 Una vez tienes conectada tu wallet de metamask 🦊 con nuestra página, solo restará obtener peces para poder realizar las distintas funciones de CTF. 
 Los jugadores obtendran un 🥚 huevo al iniciar el juego. Tendrás un porcentaje o otro de obtener peces con distintas rarezas.
-Los huevos tendrán un precio en el marketplace:
-Huevo normal: 3500 corales.
+Los huevos (proximamente) se podran comprar en el marketplace y tendrán un precio
+
+Huevo normal: 3000 corales.
 
 # FARMING
 
-Cada pez necesitará ser alimentado cada 4 horas. 
+Tu pez deberá ser alimentado.
+
 Habrá un 100% de probabilidad de obtener corales por cada alimentación.
-Para darle de comer tendrás que pinchar en el botón verde que dice "ALIMENTAR"
+Para darle de comer tendrás que pinchar en el botón azul que dice "ALIMENTAR"
 
 Se nos abrirá una ventana con un desplegable para confirmar que queremos alimentar al pez.
 
 Puedes consultar la cantidad de comida que consume cada pez en la seccion **Fish Wiki**
 
-Al confirmar la alimentacion tu pez llenará un 100% la barra de alimentación y comenzará un contador que te avisará cuando la barra esté totalmente vacía.
+Al confirmar la alimentacion tu pez te dará una recompensa en **corales** (moneda del juego) por haberlo alimentado
 
-**RECORDÁ** que la alimentación hay que hacerla cada 4 horas.
 
 (Se está planteando implementar una posibilidad de 30% de recibir el doble de corales por cada alimentación).
 
 # STAKING
 
 CoderToFish tiene un sistema de Staking que te permite incrementar tus corales haciendo un contrato (ficticio) para bloquearlos por una cantidad de tiempo.
-La cantidad de tiempo que los corales estarán bloqueados es de 30 días.
-La cantidad de recompensa por el bloqueo de 30 días es de 15% del total de corales bloqueados.
+La cantidad de tiempo que los corales estarán bloqueados es de 7 días.
+La cantidad de recompensa por el bloqueo de 7 días es de 12.5% del total de corales bloqueados.
 
 Vamos a mostrar un ejemplo de como hacer staking en CoderToFish:
 Lo primero será dirigirse a la pestaña "Staking" y darle click esta se encontrará al costado derecho de tu balance.
 
 Nos aparecerá una ventana donde podremos introducir una cantidad de tokens.
 
-Importante: El porcentaje de beneficio actual es de un 15% pero es posible que lo aumentemos o reduzcamos con el tiempo. En estos casos, no te preocupes porque no te afectarán los nuevos cambios. Tu recompensa de staking será la que había en el momento que bloqueaste los tokens.
+Importante: El porcentaje de beneficio actual es de un 12.5% pero es posible que lo aumentemos o reduzcamos con el tiempo. En estos casos, no te preocupes porque no te afectarán los nuevos cambios. Tu recompensa de staking será la que había en el momento que bloqueaste los tokens.
 
 # ECONOMIA
 
-Recuerda que al subir de nivel tus peces obtendrán un incremento de 5% en el valor de tokens generados al alimentarse. 
+Recuerda que al subir de nivel tus peces obtendrán un incremento de 10% en el valor de tokens generados al alimentarse. 
 
 
 # RULETA
 
 La ruleta será accesible mediante un icono que podrás encontrar en tu pantalla.
 
-En la ruleta podrás obtener objetos únicos y peces de edición limitada que estarán disponibles poco tiempo.
+Por ahora puedes obtener manzanas y corales.
+
+En la ruleta en un futuro podrás obtener objetos únicos y peces de edición limitada que estarán disponibles poco tiempo (proximamente).
+
 
 Cada tirada de la ruleta tendrá un coste de 15 corales.
-
-Cada recompensa tiene un porcentaje de salir, podrás consultarlo aqui debajo:
-
-
-
 
 
 # RETIROS
@@ -67,9 +66,7 @@ Muchos quieren saber como es el sistema de Withdraw de CoderToFish, aquí lo exp
 
 Basicamente no pueden retirar nada porque no pusieron un mango. 
 
-Pero simulemos que se puede ja!
-
-Podrás retirar un mínimo de 100, y el mínimo tiempo entre retirada y retirada será 1 hora.
+Pero imaginemos que se puede ja!
 
 
 
@@ -80,19 +77,20 @@ sobre el sistema de Huevos.
 Porcentaje de rareza de peces en el Huevo 🥚 abierto. 
 | Rareza | % (De salir) |
 |--------|------------------|
-  Sardina |    56%
-Pez globo | 22%
-Pez Espada|9%
-Tiburon|6%
-Pez Abysal|10%
+  Sardina |    50%
+Pez globo | 25%
+Pez Espada|12.5%
+Tiburon|8.33%
+Pez Abysal|4.16%
 
 
 **Sistema de alimentacion:**
 
-Los peces necesitarán comer una vez cada 4 horas ⏳. 
+Los peces necesitarán comer. 
+
 Sin embargo, los peces que tengan una rareza más alta, necesitarán más comida para llenarse.
 
-Un pez rareza "Epico o Tiburon" cada 4 horas necesitará 4 comidas. 
+Un pez rareza "Epico o Tiburon" necesitará 4 comidas. 
 
 | Rareza | Cantidad de Comida por ingesta |
 |--------|--------------------------------|
@@ -103,16 +101,22 @@ Epico o Tiburon|4
 Legendario o Pez Abysal|5
 
 **Sistema de Alimentacion:**
-El alimento que uses para alimentar a tu mascota, subirá una determinada cantidad de experiencia
-1🍎 Manzana = 5 exp.
+El alimento que uses para alimentar a tu mascota, subirá la cantidad de alimento de la misma.
+
+1🍎 Manzana = 1 alimento para Sardina
+2🍎 Manzanas = 1 alimento para Pez Globo
+3🍎 Manzanas = 1 alimento para Pez Espada
+4🍎 Manzanas = 1 alimento para Tiburon
+5🍎 Manzanas = 1 alimento para Pez Abisal
 
 
-|Nivel|Exp necesaria para el siguiente nivel|
+
+|Nivel|Alimento necesario para el siguiente nivel|
 |--------|----------------------------------|
-1|200 EXP
-2|600 EXP
-3|1400 EXP
-4|2500 EXP
+1|50🍎
+2|50🍎
+3|50🍎
+4|50🍎
 5|-Level Max- 
 ​
 
@@ -130,21 +134,21 @@ Según la rareza de los peces, cada pez dará una cantidad de corales cada  vez 
 |Rareza | Ganancias BASE|
 |--------|--------------|
 Comun|7
-Poco Comun|12
+Poco Comun|13
 Raro|20
-Epico|60
-Legendario|90
+Epico|30
+Legendario|40
 
 **Incremento de ganancias segun nivel**
 
 |Nivel| Incremento|
 |--------|------------------|
 0|+0%
-1|+5%
+1|+10%
 2|+10%
-3|+15%
-4|+20%
-5|+25%
+3|+10%
+4|+10%
+5|+10%
 
 # RECOMPENSA DIARIA
 
