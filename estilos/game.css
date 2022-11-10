@@ -154,10 +154,10 @@ padding-bottom: 2rem;
   justify-content: center;
   align-items: center;
   width: 95%;
-  height: 12em;
   background-color: var(--paleta-color-3);
   box-shadow: 0px 0px 1rem #0A4273;
   border-radius: 0px 0px 8px 8px;
+  flex-wrap: wrap;
 }
 
 .gameBoxDiv20 p:first-of-type{
@@ -554,4 +554,16 @@ cursor: pointer;
 
 .metamaskFont{
   font-size: .7rem;
+}
+
+.gameBoxDivInt40{
+  margin-left: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+
+
+.divBtnRefill{
+  margin-left: 1rem;
 }

@@ -190,17 +190,21 @@ h2{
 
 
 .divPremio{
-  width: 9.6rem;
-  height: 12rem;
   position: absolute;
-  border: thin solid black;
-  background-color: blue;
-  border-radius: .2rem;
   top: 33%;
   left: 45%;
   display: flex;
   align-items: flex-end;
   flex-direction: column;
+
+  border: .5rem solid var(--paleta-color-1);
+  width: 10em;
+  height: 10em;
+  color: black;
+  font-weight: bold;
+  background-image: url(/assets/imagenes/pecera.jpg);
+  border-radius: 10%;
+  box-shadow: 0px 0px 1rem black; 
 }
 
 .cerrar{
@@ -245,8 +249,20 @@ height: 100%;
 display: flex;
 justify-content: center;
 align-items: center;
+font-size: .8rem;
 }
 
+.tipoPremioContainer img{
+  width: 4rem;
+  filter: drop-shadow(5px 5px .5rem black);
+}
+
+.tipoPremioContainer h3{
+ text-align: center;
+  box-shadow: 1px 1px 1rem black; 
+  width: 90%;
+  font-weight: bold;
+}
 
 .girar1{
     animation-name: rueda1; 

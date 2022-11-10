@@ -26,8 +26,6 @@ if (localStorage.getItem("email") && localStorage.getItem("password")) {
   divAlert.appendChild(pAlertActive)
   
 
-
-
 }
 
 
@@ -39,6 +37,8 @@ formularioRegistro.addEventListener('submit', e => {
   localStorage.setItem('nombre', nombre)
   localStorage.setItem('email', email)
   localStorage.setItem('password', password)
+
+
 }
 )
 
@@ -51,6 +51,7 @@ formularioLogin.addEventListener("submit", (e) => {
     $signUp.classList.add('hidden')
     $signIn.classList.add('hidden')
     location.href = "https://preentrega1-geist.netlify.app/game/game.html";
+  } 
     
-  } ;
+ 
 });
