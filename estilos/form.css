@@ -149,7 +149,7 @@ body {
     color: white;
 }
 
-.formulario input[type="button"] {
+.formulario input[type="submit"] {
     width: 60%;
     margin: auto;
     border: solid thin white;
@@ -178,3 +178,49 @@ body {
     opacity: 0;
     visibility: hidden;
 }
+
+.cuentaActiva{
+    position: absolute;
+    top: 3rem;
+    width: 100%;
+    background-color: rgb(51, 51, 51, 0.602);
+    height: 1rem;   
+    display: flex;
+     justify-content: center;    
+}
+
+.cuentaActiva p{
+    font-size: .8rem;
+    color: white;
+    animation: desplazamiento 4s linear alternate infinite;
+}
+
+@keyframes desplazamiento {
+    0%{margin-left: -10rem;}
+    5%{margin-left: -9rem;}
+    10%{margin-left: -8rem;}
+    15%{margin-left: -7rem;}
+    20%{margin-left: -6rem;}
+    25%{margin-left: -5rem;}
+    30%{margin-left: -4rem;}
+    35%{margin-left: -3rem;}
+    40%{margin-left: -2rem;}
+    45%{margin-left: -1rem;}
+    50%{margin-left: 0rem;}
+    55%{margin-left: 1rem;}
+    60%{margin-left: 2rem;}
+    65%{margin-left: 3rem;}
+    70%{margin-left: 4rem;}
+    75%{margin-left: 5rem;}
+    80%{margin-left: 6rem;}
+    85%{margin-left: 7rem;}
+    90%{margin-left: 8rem;}
+    95%{margin-left: 9rem;}
+    100%{margin-left: 10rem;}
+    
+}
+
+.hidden{
+    visibility: hidden;
+}
+

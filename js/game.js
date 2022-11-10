@@ -307,6 +307,9 @@ let gameBoxDivInt40Target = document.createElement("div");
 let manzana = document.createElement("img");
 let textCantidadManzanas = document.createElement("p");
 let btnComprarAlimento = document.createElement("button");
+ let metamask = document.createElement("button");
+
+
 
 function iniciarJuego() {
   peceraComida = JSON.parse(localStorage.getItem("peceraComida"));
@@ -332,8 +335,10 @@ function iniciarJuego() {
     "ALIMENTOS: " + pescadosCreados[pescadosCreados.length - 1].alimento;
 
   gameBox.appendChild(gameBoxDiv20);
+  gameBox.appendChild(metamask);
   gameBox.appendChild(gameBoxDiv60);
   gameBox.appendChild(gameBoxDiv40);
+  metamask.classList.add("metamask");
   gameBoxDiv20.classList.add("gameBoxDiv20");
   gameBoxDiv60.classList.add("gameBoxDiv60");
   gameBoxDiv40.classList.add("gameBoxDiv40");
@@ -362,6 +367,48 @@ function iniciarJuego() {
   function comprando(comprando) {
     comprarComida();
   }
+
+  // agregando metamask
+
+
+ 
+
+  let conectarMetamask = document.querySelector(".metamask");
+  let cuenta;
+
+  conectarMetamask.addEventListener("click", (evento) => {
+    // creacion de divs internos
+
+    let pCuenta = document.createElement("p")
+    let imgDiv = document.createElement('div')
+    let imgLogoMetamask = document.createElement('img')
+    imgLogoMetamask.classList.add("metamaskLogo");
+    conectarMetamask.appendChild(pCuenta)
+    conectarMetamask.appendChild(imgDiv)
+    imgDiv.appendChild(imgLogoMetamask)
+
+    // api de metamask;
+    ethereum.request({ method: "eth_requestAccounts" }).then((cuentas) => {
+      cuenta = cuentas[0];
+      console.log(cuenta);
+
+      ethereum
+        .request({ method: "eth_getBalance", params: [cuenta, "latest"] })
+        .then((resultado) => {
+          console.log(resultado);
+          let wei = parseInt(resultado, 16);
+          let balance = wei / 10 ** 18;
+          console.log(balance);
+
+         pCuenta.textContent = cuenta.slice(0,14) + "...";
+         imgLogoMetamask.src = "/metamask/metamask.svg";
+          localStorage.setItem('metamask', cuenta)
+           metamask.disabled = true;
+        });
+    });
+  });
+
+
 
   // AGREGANDO RULETA
   let ruletaDiv = document.createElement("div");
@@ -435,15 +482,14 @@ function iniciarJuego() {
           minutosSubmit = 59;
           segundosSubmit = 60;
 
-
-
           clearInterval(tiempoSubmit);
           console.log("fin");
           stakingBtn.style.opacity = 1;
           stakingBtn.disabled = false;
           stakingBtn.textContent = "STAKING";
-           let coralesInversion = localStorage.getItem("coralesInversion");
-           monedaCorales += Number(coralesInversion) + Number(coralesInversion * 0.125);
+          let coralesInversion = localStorage.getItem("coralesInversion");
+          monedaCorales +=
+            Number(coralesInversion) + Number(coralesInversion * 0.125);
           gameBoxDivInt20P.textContent = monedaCorales.toFixed(2) + " Corales";
           localStorage.setItem("monedaCorales", monedaCorales);
         }
@@ -455,8 +501,6 @@ function iniciarJuego() {
     minutosSubmit = 59;
     segundosSubmit = 60;
   }
-
-
 
   stakingBtn.addEventListener("click", () => {
     let divStakingClick = document.createElement("div");
@@ -521,7 +565,7 @@ function iniciarJuego() {
 
     //-------------------------------------------------------------//
 
-   // ACA BORRE CODIGO
+    // ACA BORRE CODIGO
 
     submit.addEventListener("click", iniciarContadorSubmit);
 
@@ -572,7 +616,8 @@ function iniciarJuego() {
           segundosSubmit = 60;
 
           let coralesInversion = localStorage.getItem("coralesInversion");
-          monedaCorales = monedaCorales + (coralesInversion + (coralesInversion * 0.125));
+          monedaCorales =
+            monedaCorales + (coralesInversion + coralesInversion * 0.125);
           gameBoxDivInt20P.textContent = monedaCorales.toFixed(2) + " Corales";
 
           clearInterval(tiempoSubmit);
@@ -580,12 +625,10 @@ function iniciarJuego() {
           stakingBtn.style.opacity = 1;
           stakingBtn.disabled = false;
           stakingBtn.textContent = "STAKING";
-          
         }
       }, 1000);
     }
 
-     
     //-------------------------------------------------------------//
 
     submit.addEventListener("click", () => {
@@ -675,8 +718,6 @@ function iniciarJuego() {
     divTextoExplicaStake.appendChild(textoExplicaStake);
   });
 
-  
-
   //agregando regalo diario
 
   let btnRegaloDiario = document.createElement("button");
@@ -714,10 +755,8 @@ function iniciarJuego() {
 
   function iniciarContador() {
     peceraComida = peceraComida + 1;
-    localStorage.setItem('peceraComida', peceraComida)
+    localStorage.setItem("peceraComida", peceraComida);
     textCantidadManzanas.textContent = "Tienes " + peceraComida;
-
-
 
     localStorage.setItem("hora", hora);
     localStorage.setItem("minutos", minutos);
@@ -768,8 +807,6 @@ function iniciarJuego() {
         btnRegaloDiario.style.opacity = 1;
         btnRegaloDiario.disabled = false;
         btnRegaloDiario.textContent = "Claim";
-        
-
       }
     }, 1000);
   }
@@ -1150,3 +1187,5 @@ function alimentarTodo() {
     alimentar();
   }
 }
+
+

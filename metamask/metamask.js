@@ -1,6 +1,5 @@
-let conectarMetamask = document.querySelector('#conectarMetamask');
+let conectarMetamask = document.querySelector('.metamask');
 let cuenta;
-let cuentaMostrar = document.querySelector('#cuenta')
 
 conectarMetamask.addEventListener('click', evento => {
     ethereum.request({method: 'eth_requestAccounts'}).then(cuentas => {
@@ -13,7 +12,7 @@ conectarMetamask.addEventListener('click', evento => {
         let balance = wei / (10**18);
         console.log(balance)
 
-        cuentaMostrar.textContent = 'Te conectate desde la direccion: ' + cuenta + "  y tienes " + balance + "ETH";
+        conectarMetamask.textContent = cuenta
     })
 
 
